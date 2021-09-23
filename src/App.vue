@@ -1,14 +1,26 @@
 <template>
-  <div class="text-center">
-    <img class="mx-auto mt-12 mb-8" alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Vite + Vue 3 + Tailwind jit" />
-    <img class="mx-auto my-8" alt="powered-by" src="./assets/powered-by-vitawind-bright.png">
+  <div class="flex flex-col gap-10 p-8">
+    <header class="flex justify-between items-center">
+      <h1 class="font-bold text-3xl text-blue-darker">Clock</h1>
+
+      <button class="w-12 p-3 rounded-full solid">
+        <Cog />
+      </button>
+    </header>
+
+    <main>
+      <Clock />
+    </main>
   </div>
 </template>
 
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
+import Cog from "@/assets/cog.svg";
+import Clock from "./components/Clock.vue";
 </script>
+
+<style scoped>
+.solid {
+  box-shadow: -4px -2px 16px #ffffff, 4px 2px 16px rgba(136, 165, 191, 0.48);
+}
+</style>

@@ -1,27 +1,39 @@
 <template>
   <span
     :class="[
-      'absolute w-1 transform',
+      'absolute',
 
-      size === 'sm' && 'h-5',
-      size === 'md' && 'h-1/2',
-      size === 'lg' && 'h-2/3',
-
-      direction === 'left' && 'left-0 translate-x-2',
-      direction === 'right' && 'right-0 -translate-x-2',
+      direction === 'left' && 'left-0',
+      direction === 'right' && 'right-0',
       direction === 'up' && 'top-0',
       direction === 'down' && 'bottom-0',
 
-      color === 'gray' && 'bg-blue-gray',
-      color === 'gray-dark' && 'bg-gray-dark',
-      color === 'red' && 'bg-red',
-
-      rounded && 'rounded-full',
+      'transform origin-bottom transition-all',
     ]"
     :style="{
       '--tw-rotate': `${rotate % 360}deg`,
     }"
-  />
+  >
+    <span
+      :class="[
+        'absolute w-1',
+        'transform -translate-x-1/2',
+
+        ['left', 'right', 'down'].includes(direction) && '-translate-y-full',
+
+        size === 'xs' && 'h-5',
+        size === 'sm' && 'h-12',
+        size === 'md' && 'h-20',
+        size === 'lg' && 'h-28',
+
+        color === 'gray' && 'bg-blue-gray',
+        color === 'gray-dark' && 'bg-gray-dark',
+        color === 'red' && 'bg-red',
+
+        rounded && 'rounded-full',
+      ]"
+    />
+  </span>
 </template>
 
 <script>
@@ -33,13 +45,12 @@ export default {
   props: {
     size: {
       type: String,
-      default: "sm",
-      validator: includes(["sm", "md", "lg"]),
+      default: "xs",
+      validator: includes(["xs", "sm", "md", "lg"]),
     },
 
     direction: {
       type: String,
-      default: "up",
       validator: includes(["up", "down", "left", "right"]),
     },
 

@@ -17,7 +17,4 @@
 <script setup>
 import Cog from "@/assets/cog.svg";
 import Clock from "./components/Clock.vue";
-import { provide } from "vue";
-
-provide("time", new Date());
 </script>

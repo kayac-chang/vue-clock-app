@@ -34,9 +34,13 @@ const seconds = ref(0);
 watch(
   () => timer.state.time,
   (time) => {
+    console.log(time);
+
     hours.value = deg(time.getHours() / 12);
     minutes.value = deg(time.getMinutes() / 60);
     seconds.value = deg(time.getSeconds() / 60);
+
+    console.log(seconds.value);
   }
 );
 </script>

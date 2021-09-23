@@ -8,18 +8,18 @@
       direction === 'up' && 'top-0',
       direction === 'down' && 'bottom-0',
 
-      'transform origin-bottom transition-all',
+      'transform',
     ]"
     :style="{
-      '--tw-rotate': `${rotate % 360}deg`,
+      '--tw-rotate': `${rotate}deg`,
     }"
   >
     <span
       :class="[
         'absolute w-1',
-        'transform -translate-x-1/2',
+        'transform -translate-x-1/2 -translate-y-full',
 
-        ['left', 'right', 'down'].includes(direction) && '-translate-y-full',
+        direction === 'up' && 'translate-y-0',
 
         size === 'xs' && 'h-5',
         size === 'sm' && 'h-12',

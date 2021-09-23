@@ -51,7 +51,7 @@ export default {
     color: {
       type: String,
       default: "gray",
-      validator: includes(["gray", "red", "dark-gray"]),
+      validator: includes(["gray", "red", "gray-dark"]),
     },
 
     rounded: Boolean,
